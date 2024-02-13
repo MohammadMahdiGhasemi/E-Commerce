@@ -35,3 +35,13 @@ class Person(AbstractBaseUser, PermissionsMixin):
     #     return True
     # def has_module_perms(self, app_label):
     #     return True
+
+
+class Address(models.Model):
+    person=models.ForeignKey(Person ,on_delete=models.CASCADE)
+    country = models.CharField(max_length=250)
+    city=models.CharField(max_length=250)
+    street =models.CharField(max_length=250)
+
+    def __str__(self) -> str:
+        return f"{self.person.first_name} - {self.person.last_name} - {self.country}"

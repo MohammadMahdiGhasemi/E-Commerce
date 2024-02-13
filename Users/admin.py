@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import Person
+from .models import Person , Address
 from .forms import UserChangeForm, UserCreationForm
 
 class UserAdmin(BaseUserAdmin):
@@ -22,3 +22,5 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal=( 'groups' , 'user_permissions')
 
 admin.site.register(Person, UserAdmin)
+
+admin.site.register(Address)
