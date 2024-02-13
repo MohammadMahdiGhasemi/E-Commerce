@@ -1,6 +1,6 @@
 from django.db import models
 
-from User.models import Person
+from Users.models import Person
 
 
 class Category(models.Model):
