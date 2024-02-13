@@ -38,7 +38,7 @@ class Product(models.Model):
     stock = models.CharField(max_length=250, choices=[('avalible', 'Avalible'), ('finished', 'Finished')])
     date_time=models.DateTimeField(auto_now_add=True)
     discount=models.ForeignKey(Discount , on_delete=models.CASCADE , blank=True  , null=True)
-    category= models.ForeignKey(Category , on_delete=models.CASCADE)
+    category= models.ForeignKey(Category , on_delete=models.CASCADE )
     media=models.ForeignKey(Media , on_delete=models.CASCADE, blank=True  , null=True)
 
     def __str__(self) -> str:
