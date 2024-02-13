@@ -23,8 +23,9 @@ class OrderProductSerializer(serializers.Serializer):
 
 
 
-class TransactionSerializer(serializers.Serializer):
-    model = Transaction
-    fields = ['order' , 'person' , 'amount' , 'date' ,'status' ]
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ['order' , 'person' , 'amount' , 'date' ,'status' ]
 
 

@@ -1,2 +1,5 @@
 from django.urls import path , include
-urlpatterns = [] 
+from . import views
+urlpatterns = [
+    path('products/' , views.ProductView.as_view())
+] 
