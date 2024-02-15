@@ -9,7 +9,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields= ['name' , 'parent']
 
 
-class MediaSeerializer(serializers.ModelSerializer):
+class MediaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Media
         fields= ['image' , 'description']
@@ -30,7 +30,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 
-class CommentSerializr(serializers.ModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model= Comment
         fields = '__all__'

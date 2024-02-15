@@ -42,6 +42,8 @@ class Address(models.Model):
     country = models.CharField(max_length=250)
     city=models.CharField(max_length=250)
     street =models.CharField(max_length=250)
+    is_active = models.BooleanField(default=True)
+
 
     def __str__(self) -> str:
         return f"{self.person.first_name} - {self.person.last_name} - {self.country}"

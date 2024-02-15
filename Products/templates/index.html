@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,17 +20,17 @@
     <div id="cart">
       <div class="cart-content">
         <header id="cart-header">
-          <h2 class="cart-title">Your cart</h2>
+          <h2 class="cart-title">سبد خرید</h2>
           <span class="close-cart">&times;</span>
         </header>
         <main id="cart-body">
           <ul class="cart-menu">
           </ul>
         </main>
-        <p class="total">Total : <span class="total-counter">$0</span></p>
+        <p class="total">مجموع : <span class="total-counter">$0</span></p>
         <footer id="cart-footer">
-          <a href="#">confirm</a>
-          <a href="#" id="clear-btn" onclick='clearCart()'>clear cart</a>
+          <a href="#">ادامه</a>
+          <a href="#" id="clear-btn" onclick='clearCart()'>حذف سبد </a>
         </footer>
       </div>
     </div>
@@ -42,23 +42,23 @@
         </span>
         <div class="menu">
           <ul class="menu-container">
-            <li class="menu-item"><a href="#">Home</a></li>
+            <li class="menu-item"><a href="#">خانه</a></li>
             <div class="dropdown">
               <li class="menu-item dropdown-menu" style="cursor: pointer">
-                <a href="#">Products</a
+                <a href="#">محصولات</a
                 ><i class="fas fa-caret-down item-icon"></i>
               </li>
               <ul class="dropdown-content">
                 <a href="#mobiles"
-                  ><li class="dropdown-menu-item">Mobiles</li></a
+                  ><li class="dropdown-menu-item">موبایل</li></a
                 >
                 <a href="#gameConsole">
-                  <li class="dropdown-menu-item">Game Consoles</li></a
+                  <li class="dropdown-menu-item">کنسول بازی</li></a
                 >
               </ul>
             </div>
-            <li class="menu-item"><a href="#branches-title">Branches</a></li>
-            <li class="menu-item"><a href="#support">Support</a></li>
+            <li class="menu-item"><a href="#branches-title">شعبات</a></li>
+            <li class="menu-item"><a href="#support">پشتیبانی</a></li>
           </ul>
         </div>
         <div class="nav-btn">
@@ -72,8 +72,8 @@
     <!--- navigation --->
     <!--- header --->
     <header class="header container-fluid" id="header">
-      <h1 class="header-title">HiddenShop</h1>
-      <p class="header-desc">Buy anything from anywhere!</p>
+      <h1 class="header-title">فروشگاه</h1>
+      <p class="header-desc">هر چقدر دست داشتی بخر!</p>
       <i class="header-icon fas fa-shipping-fast"></i>
     </header>
     <!--- header --->
@@ -81,12 +81,12 @@
     <!--- products --->
 
     <section class="container products" id="mobiles">
-      <h2 class="product-title">Mobiles</h2>
+      <h2 class="product-title">موبایل</h2>
       <div class="product-content"></div>
     </section>
 
     <section class="container products" id="gameConsole">
-      <h2 class="product-title">Game console</h2>
+      <h2 class="product-title">کنسول بازی</h2>
       <div class="product-content"></div>
     </section>
 
@@ -94,7 +94,7 @@
 
     <!--- Branches --->
 
-    <h2 id="branches-title" class="branches-title">Branches</h2>
+    <h2 id="branches-title" class="branches-title">شعبات</h2>
 
     <section id="branches" class="container-fluid">
       <div class="branch-container">
@@ -105,9 +105,9 @@
               alt="branch-item"
               class="branch-image"
             />
-            <span class="branch-name">Moscow</span>
+            <span class="branch-name">مسکو</span>
           </div>
-          <i class="more-info">more</i>
+          <i class="more-info">بیشتر</i>
           <div class="panel">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
@@ -124,9 +124,9 @@
               alt="branch-item"
               class="branch-image"
             />
-            <span class="branch-name">Doha</span>
+            <span class="branch-name">دوهه</span>
           </div>
-          <i class="more-info">more</i>
+          <i class="more-info">بیشتر</i>
           <div class="panel">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
@@ -139,9 +139,9 @@
         <div class="branch-item">
           <div class="branch-image">
             <img src="./images/cities/new-york.jpg" alt="branch-item" />
-            <span class="branch-name">New York</span>
+            <span class="branch-name">نیویورک</span>
           </div>
-          <i class="more-info">more</i>
+          <i class="more-info">بیشتر</i>
           <div class="panel">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
@@ -160,27 +160,26 @@
     <footer class="footer container-fluid">
       <div class="footer_container">
         <div class="footer-content">
-          <h2 class="footer-sec__title">Customer Service</h2>
+          <h2 class="footer-sec__title">سرویس مشتریان</h2>
           <p class="footer-sec__desc">FAQ</p>
           <p class="footer-sec__desc">Returns & refunds</p>
-          <p class="footer-sec__desc">Terms & conditions</p>
-          <p class="footer-sec__desc">Privacy Policy</p>
+          <p class="footer-sec__desc">قوانین  و مقررات</p>
         </div>
         <div class="footer-content">
-          <h2 class="footer-sec__title" id="support">HiddenShop Store</h2>
-          <p class="footer-sec__desc">Store location</p>
-          <p class="footer-sec__desc">Store hours</p>
-          <p class="footer-sec__desc">Store events</p>
-          <p class="footer-sec__desc">HiddenShop Store support</p>
+          <h2 class="footer-sec__title" id="support">فروشگاه</h2>
+          <p class="footer-sec__desc">موقیت فروشگاه</p>
+          <p class="footer-sec__desc">ساعت های فروشگاه</p>
+          <p class="footer-sec__desc">رویداد های فروشگاه</p>
+          <p class="footer-sec__desc">پشتیبانی فروشگاه</p>
         </div>
         <div class="footer-content">
-          <h2 class="footer-sec__title" id="about-us">About us</h2>
-          <p class="footer-sec__desc">Our story</p>
+          <h2 class="footer-sec__title" id="about-us">درباره ی ما</h2>
+          <p class="footer-sec__desc">فروشگاه ما</p>
           <p class="footer-sec__desc">Careers with HiddenShop</p>
-          <p class="footer-sec__desc">News</p>
+          <p class="footer-sec__desc">اخبار</p>
         </div>
         <div class="footer-content">
-          <h2 class="footer-sec__title">Follow us</h2>
+          <h2 class="footer-sec__title">دنبال کنید</h2>
           <i class="footer-icon fab fa-facebook" title="Facebook"></i>
           <i class="footer-icon fab fa-instagram" title="Instagram"></i>
           <i class="footer-icon fab fa-pinterest" title="Pinterest"></i>
@@ -194,7 +193,7 @@
       ></a>
     </div>
     <div class="copyright" style="text-align: center">
-      <p>Copyright © 2022 by HiddenShop</p>
+      <p>Copyright © 2022 by فروشگاه</p>
     </div>
     <script src="scripts/products.js"></script>
     <script src="scripts/app.js"></script>
