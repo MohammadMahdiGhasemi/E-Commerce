@@ -34,6 +34,8 @@ class UserView(APIView):
         user.is_active=False
         user.save()
         return Response({'message':'User deleted'})    
+    
+    
 class AddressView(APIView):
     model=Address
     serializer= AddressSerializer

@@ -4,6 +4,8 @@ from rest_framework .views import APIView
 from .models import Product , Category ,Media ,Discount , Comment
 from .serializers import ProductSerializer ,CategorySerializer , MediaSerializer , DiscountSerializer , CommentSerializer
 from rest_framework.response import Response
+from rest_framework import generics
+from rest_framework import filters
 class ProductView(APIView):
     model=Product
     serializer= ProductSerializer
@@ -37,6 +39,13 @@ class ProductView(APIView):
         product.is_active = False 
         product.save()
         return Response({'message': 'product  deleted'})
+    
+
+class ProductSearchAPIView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'category__name']
     
 
 class CategoryView(APIView):

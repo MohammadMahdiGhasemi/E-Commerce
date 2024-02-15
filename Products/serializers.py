@@ -19,7 +19,7 @@ class DiscountSerializer(serializers.ModelSerializer):
     class Meta:
 
         model= Discount
-        fields = ['type' , 'value', 'start_date','end_date', 'code']
+        fields = ['type' , 'value', 'start_date_time','end_date_time', 'code']
 
 
 

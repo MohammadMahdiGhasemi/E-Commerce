@@ -2,12 +2,12 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from.models import Order , Discount_Code ,OrderProduct , Transaction
-from .serializers import Ordrserializer , DiscountCodeSerilizer , OrderProductSerializer , TransactionSerializer
+from .serializers import OrderSerializer , DiscountCodeSerilizer , OrderProductSerializer , TransactionSerializer
 from rest_framework import status
 
 class OrderView(APIView):
     model=Order
-    serializer= Ordrserializer
+    serializer= OrderSerializer
     def get(self , request):
         orders= self.model.objects.all()
         srz_data=self.serializer(instance=orders , many =True)

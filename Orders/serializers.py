@@ -4,7 +4,7 @@ from.models import Order , Discount_Code , OrderProduct , Transaction
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ['discount' , 'date_time' , 'status']
+        fields = ['id', 'person', 'date_time' , 'status' , 'transaction'] 
 
 
 
@@ -26,6 +26,6 @@ class OrderProductSerializer(serializers.Serializer):
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ['order' , 'person' , 'amount' , 'date' ,'status' ]
+        fields = [ 'amount' , 'date' ,'status' ]
 
 

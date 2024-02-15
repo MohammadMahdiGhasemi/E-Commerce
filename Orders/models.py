@@ -14,12 +14,18 @@ class Discount_Code(models.Model):
 
     def __str__(self) -> str:
         return f"{self.code} - {self.start_date_time} - {self.end_date_time}"
+class Transaction(models.Model):
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=[('success', 'Success'), ('failure', 'Failure') , ('none' , 'None')])
+    is_active = models.BooleanField(default=True)
 
 class Order (models.Model):
     person = models.ForeignKey(Person , on_delete=models.CASCADE )
     discount_code = models.ForeignKey(Discount_Code , on_delete=models.CASCADE, blank=True  , null=True)
     date_time=models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=250)
+    transaction=models.ForeignKey(Transaction , on_delete=models.CASCADE , blank =True , null = True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
@@ -38,12 +44,6 @@ class OrderProduct(models.Model):
         return f"{self.order.person} -{self.product}"
 
 
-class Transaction(models.Model):
-    order=models.ForeignKey(Order , on_delete=models.CASCADE )
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=[('success', 'Success'), ('failure', 'Failure') , ('none' , 'None')])
-    is_active = models.BooleanField(default=True)
 
 
     def __str__(self) -> str:
