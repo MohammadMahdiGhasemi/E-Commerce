@@ -8,6 +8,11 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields= ['name' , 'parent']
 
+class CategoryNameSerializer(serializers.ModelSerializer):
+    class Meta :
+        model=Category
+        fields=['name']
+
 
 class MediaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,6 +29,9 @@ class DiscountSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    category=CategorySerializer()
+    media=MediaSerializer()
+    discount=DiscountSerializer()
     class Meta:
         model= Product
         fields=['name' , 'brand','price','stock' , 'date_time' , 'discount', 'category' ,'media']
