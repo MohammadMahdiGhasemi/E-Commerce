@@ -18,7 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Blogs',
     'Orders',
-    'Users',  # Make sure 'User' app is listed after 'django.contrib.auth'
+    'Users',  
+    'django_redis',
+    'django_restframework',
 ]
 
 MIDDLEWARE = [
