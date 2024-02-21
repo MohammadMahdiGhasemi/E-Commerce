@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from .managers import PersonManager
+from django.utils import timezone
+from .models import Person
 
 
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
@@ -47,3 +49,15 @@ class Address(models.Model):
 
     def __str__(self) -> str:
         return f"{self.person.first_name} - {self.person.last_name} - {self.country}"
+    
+
+
+
+
+class OTP(models.Model):
+    user = models.ForeignKey(Person, on_delete=models.CASCADE)
+    otp_code = models.CharField(max_length=6)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.user.email} - {self.otp_code}"
