@@ -1,4 +1,5 @@
 from pathlib import Path
+from django.core.mail.backends.smtp import EmailBackend
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +21,7 @@ INSTALLED_APPS = [
     'Orders',
     'Users',  
     'django_redis',
-    'django_restframework',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -96,3 +97,19 @@ AUTH_USER_MODEL = "Users.Person"
 
 
 
+EMAIL_BACKEND = 'django_email_backend.backends.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ghasemi.ferdosi@gmail.com'  
+EMAIL_HOST_PASSWORD = 'gjrm gemn noff byey'  #  App Password
+
+# Optional: To display emails in the console during development
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  
+    'Users.authentication.EmailAuthBackend',   
+]
