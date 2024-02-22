@@ -102,7 +102,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ghasemi.ferdosi@gmail.com'  
-EMAIL_HOST_PASSWORD = 'gjrm gemn noff byey'  #  App Password
+EMAIL_HOST_PASSWORD = 'gjrmgemnnoffbyey'  #  App Password
 
 # Optional: To display emails in the console during development
 if DEBUG:
@@ -113,3 +113,18 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  
     'Users.authentication.EmailAuthBackend',   
 ]
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1', 
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+    }
+}
+
+# You can also set a separate cache for sessions if desired
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'default'
