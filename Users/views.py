@@ -17,6 +17,7 @@ from django.utils.encoding import smart_str, force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.views import View
 
 class UserView(APIView):
     model = Person
@@ -28,22 +29,21 @@ class UserView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        if 'phone_number' in request.data:
-            phone_number = request.data['phone_number']
-            user = self.model.objects.filter(phone_number=phone_number).first()
+        if 'email' in request.data:
+            email = request.data['email']
+            user = self.model.objects.filter(email=email).first()
 
             if not user:
                 return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
-            otp_code = random.randint(100000, 999999)  # Generate a random 6-digit OTP
-            # Assuming you have an OTP model with fields `user` and `otp_code`
+            otp_code = random.randint(100000, 999999)  
             OTP.objects.create(user=user, otp_code=str(otp_code))
 
             # Send OTP via Email
             subject = 'Your OTP Code'
             html_message = render_to_string('otp_email.html', {'otp_code': otp_code})
             plain_message = strip_tags(html_message)
-            from_email = 'your_email@gmail.com'  # Set your email here
+            from_email = 'ghasemi.ferdosi@gmail.com'  # Set your email here
             to = user.email
             send_mail(subject, plain_message, from_email, [to], html_message=html_message)
 
@@ -77,6 +77,9 @@ class UserView(APIView):
         user.save()
         return Response({'message': 'User deleted'}, status=status.HTTP_200_OK)
 
+class UserLoginPage(View):
+    def get(self , request):
+        return render(request, 'index.html')
 
 class UserLoginView(APIView):
     serializer_class = UserLoginSerializer
